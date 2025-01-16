@@ -1,6 +1,6 @@
-def encrypt(n, m, dummy_text):
-    f1 = open("raw_text.txt", "w")
-    f1.write(dummy_text)
+def encrypt(n, m):
+    f1 = open("raw_text.txt", "r")
+    dummy_text = f1.read()
     encrypted_text = ""
 
     for ch in dummy_text:
@@ -77,7 +77,9 @@ def decrypt(n, m):
     return decrypted_text
 
 
-def check_correctness(original, decrypted):
+def check_correctness( decrypted):
+    f1 = open("raw_text.txt", "r")
+    original = f1.read()
     if original == decrypted:
         print("Decryption is correct!")
     else:
@@ -85,13 +87,12 @@ def check_correctness(original, decrypted):
 
 
 def main():
-    dummy_text = "This is a dummy content for the ASSIGNMENT2 fdfdfdf ffdfdfd HHJHJJ jhjhjhjhj"
     n = 4
     m = 5
-    print("Original Text:", dummy_text)
+    print("Original Text:")
 
     # Encrypt the text
-    encrypted_message = encrypt(n, m, dummy_text)
+    encrypted_message = encrypt(n, m)
     print("Encrypted Text:", encrypted_message)
 
     # Decrypt the text
@@ -99,7 +100,7 @@ def main():
     print("Decrypted Text:", decrypted_message)
 
     # Check correctness
-    check_correctness(dummy_text, decrypted_message)
+    check_correctness(decrypted_message)
 
 
 main()
