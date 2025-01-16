@@ -104,23 +104,3 @@ def main():
 
 main()
 
-# Here we've got an issue in the decryption process
-# Issue Explanation:
-# The core problem lies in the mismatch between the categorization of characters during encryption and decryption.
-# In encryption, characters are categorized based on their original range (e.g., 'a-m', 'n-z', 'A-M', 'N-Z').
-# However, after the encryption shifts, the characters may move out of their original range, leading to a
-# re-categorization during decryption. This re-categorization results in applying incorrect decryption logic.
-
-# Example of the issue:
-# - Original character: 'a' (belongs to 'a-m')
-# - Encrypted character: 'u' (shifts out of 'a-m' and into 'n-z')
-# - During decryption, 'u' is treated as belonging to 'n-z', applying the wrong decryption logic.
-
-# Marker-Based Solution:
-# To resolve this, a marker or tagging mechanism can be introduced during encryption to preserve the
-# original category of the character. This marker allows the decryption process to correctly identify
-# the original range of the character, ensuring the correct decryption logic is applied.
-
-# Note:
-# Marker tagging ensures that the character's transformation logic remains consistent across encryption
-# and decryption, eliminating the risk of misclass
